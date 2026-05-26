@@ -391,29 +391,27 @@ app.get('/api/video', async (req, res) => {
   // Cache successful fetch
   if (d) writeCache(`vid_${vid}_${bid}`, result);
 
-  const player = CONFIG.PLAYER_BASE;
-
   // ── YouTube
   if (d.video_id && !d.download_link) {
     const yt = d.video_id.length > 20 ? decryptAppx(d.video_id) : d.video_id;
     return res.json({ ok: true, type: 'youtube', url: 'https://www.youtube.com/watch?v=' + encodeURIComponent(yt) });
   }
 
-  // ── Direct download_link (AES encrypted)
+  // ── Direct download_link (AES encrypted) — raw URL, no external player
   if (d.download_link) {
     let u = decryptAppx(d.download_link);
     if (q !== 'auto') u = u.replace(/(1080p|720p|480p|360p|240p)/, q);
-    return res.json({ ok: true, type: 'video', url: player + encodeURIComponent(u) });
+    return res.json({ ok: true, type: 'hls', url: u });
   }
 
-  // ── encrypted_links array
+  // ── encrypted_links array — raw URL, no external player
   const lnks = d.encrypted_links || [];
   for (const lnk of lnks) {
     if (lnk.path) {
       let u = decryptAppx(lnk.path);
       if (u) {
         if (q !== 'auto') u = u.replace(/(1080p|720p|480p|360p|240p)/, q);
-        return res.json({ ok: true, type: 'video', url: player + encodeURIComponent(u) });
+        return res.json({ ok: true, type: 'hls', url: u });
       }
     }
   }
