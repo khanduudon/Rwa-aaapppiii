@@ -33,9 +33,9 @@ const PORT = process.env.PORT || 3000;
 // CONFIG  (PHP config.php ka equivalent)
 // ────────────────────────────────────────────────────────────────
 const CONFIG = {
-  API_BASE:     process.env.API_BASE     || 'https://rozgarapinew.teachx.in',
-  MASTER_TOKEN: process.env.MASTER_TOKEN || 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjUxNTU0MyIsInRpbWVzdGFtcCI6MTc3ODYwNzkzMywiaXZfdmVyIjoxNDMsInNlc3Npb24iOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKcFpDSTZJalV4TlRVME15SXNJbVZ0WVdsc0lqb2ljMkYxY21GaWFHdDFiV0Z5YTJoelFHZHRZV2xzTG1OdmJTSXNJbTVoYldVaU9pSlRRVlZTUVVKSUlGTklRVkpOUVNJc0luUmxibUZ1ZEZSNWNHVWlPaUoxYzJWeUlpd2lkR1Z1WVc1MFRtRnRaU0k2SW5KdmVtZGhjbDlrWWlJc0luUmxibUZ1ZEVsa0lqb2lJaXdpWkdsemNHOXpZV0pzWlNJNlptRnNjMlY5LmFMemFjc1VlZUUwbG1iR1l1bVJKZEE4cVdIYjlGQlUySDI2VDF3NG1KTE0ifQ.2hG6yHmPCOZ4jVmcbrdiDad_M_lXbR0Qs4PYOyDKVzo',
-  MASTER_USERID: process.env.MASTER_USERID || '515543',
+  API_BASE:     process.env.API_BASE     || 'https://yesofficerapi.cloudflare.net.in',
+  MASTER_TOKEN: process.env.MASTER_TOKEN || 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIzMTE4NyIsInRpbWVzdGFtcCI6MTc3ODEzOTA4NCwiaXZfdmVyIjo3LCJzZXNzaW9uIjoiZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnBaQ0k2SWpJek1URTROeUlzSW1WdFlXbHNJam9pWjI5d2FXSmhZblV1WW05cGJtRkFaMjFoYVd3dVkyOXRJaXdpYm1GdFpTSTZJbWR2Y0dsaVlXSjFJaXdpZEdWdVlXNTBWSGx3WlNJNkluVnpaWElpTENKMFpXNWhiblJPWVcxbElqb2llV1Z6YjJabWFXTmxjbDlrWWlJc0luUmxibUZ1ZEVsa0lqb2lJaXdpWkdsemNHOXpZV0pzWlNJNlptRnNjMlY5LlM1LXQ4OVVQN0UyeFIwVHNjWUZFbmszREN1ZzdmVHpYNjVwa19rZVZfUEUifQ.eyguB0EE-rNXvDSSSAursk7umMreR6DwI4-QP_AWOqE',
+  MASTER_USERID: process.env.MASTER_USERID || '231187',
   AES_KEY:      process.env.AES_KEY       || '638udh3829162018',
   AES_IV:       process.env.AES_IV        || 'fedcba9876543210',
   PLAYER_BASE:  'https://mute-butterfly-7f12.techdesh5.workers.dev/player?url=',
