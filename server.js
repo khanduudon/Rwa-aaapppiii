@@ -33,8 +33,8 @@ const PORT = process.env.PORT || 3000;
 // CONFIG  (PHP config.php ka equivalent)
 // ────────────────────────────────────────────────────────────────
 const CONFIG = {
-  API_BASE:     process.env.API_BASE     || 'https://yesofficerapi.cloudflare.net.in',
-  MASTER_TOKEN: process.env.MASTER_TOKEN || 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIzMTE4NyIsInRpbWVzdGFtcCI6MTc3ODEzOTA4NCwiaXZfdmVyIjo3LCJzZXNzaW9uIjoiZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnBaQ0k2SWpJek1URTROeUlzSW1WdFlXbHNJam9pWjI5d2FXSmhZblV1WW05cGJtRkFaMjFoYVd3dVkyOXRJaXdpYm1GdFpTSTZJbWR2Y0dsaVlXSjFJaXdpZEdWdVlXNTBWSGx3WlNJNkluVnpaWElpTENKMFpXNWhiblJPWVcxbElqb2llV1Z6YjJabWFXTmxjbDlrWWlJc0luUmxibUZ1ZEVsa0lqb2lJaXdpWkdsemNHOXpZV0pzWlNJNlptRnNjMlY5LlM1LXQ4OVVQN0UyeFIwVHNjWUZFbmszREN1ZzdmVHpYNjVwa19rZVZfUEUifQ.eyguB0EE-rNXvDSSSAursk7umMreR6DwI4-QP_AWOqE',
+  API_BASE:     process.env.API_BASE     || 'https://rozgarapinew.teachx.in',
+  MASTER_TOKEN: process.env.MASTER_TOKEN || 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjQzMDAyNTUiLCJ0aW1lc3RhbXAiOjE3NzcwMTkwMTMsIml2X3ZlciI6MTksInNlc3Npb24iOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKcFpDSTZJalF6TURBeU5UVWlMQ0psYldGcGJDSTZJbk5uTkRZek5UYzRRR2R0WVdsc0xtTnZiU0lzSW01aGJXVWlPaUpUYUdsMllXMGdSM1Z3ZEdFaUxDSjBaVzVoYm5SVWVYQmxJam9pZFhObGNpSXNJblJsYm1GdWRFNWhiV1VpT2lKeWIzcG5ZWEpmWkdJaUxDSjBaVzVoYm5SSlpDSTZJaUlzSW1ScGMzQnZjMkZpYkdVaU9tWmhiSE5sZlEuMkhiZE81d1hLNE5rZkt6RUVrczZBZHRRakxPalc0MXBubW5TeF9lZEc2NCJ9.8j1-FFb1n2Bqp4ZG61VwtMnkDDLQZUg3Hus4tlSNOAo',
   MASTER_USERID: process.env.MASTER_USERID || '231187',
   AES_KEY:      process.env.AES_KEY       || '638udh3829162018',
   AES_IV:       process.env.AES_IV        || 'fedcba9876543210',
