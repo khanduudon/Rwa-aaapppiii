@@ -39,7 +39,7 @@ const CONFIG = {
   AES_KEY:      process.env.AES_KEY       || '638udh3829162018',
   AES_IV:       process.env.AES_IV        || 'fedcba9876543210',
   PLAYER_BASE:  'https://mute-butterfly-7f12.techdesh5.workers.dev/player?url=',
-  PDF_BASE:     'http://rwaxplayer.vercel.app//pdf-viewer?url=',
+  PDF_BASE:     'https://pdfweb.classx.co.in/pdfjs/web/viewer-new.html?file=',
   CACHE_TTL:    600,       // 10 minutes
   STALE_TTL:    86400,     // 24 hours stale fallback
   UPSTREAM_TIMEOUT: 20000, // 20s
