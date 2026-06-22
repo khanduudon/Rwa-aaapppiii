@@ -13,6 +13,7 @@
  *    GET /api/content?bid=X&sid=Y&tid=Z
  *    GET /api/video?vid=V&bid=X&q=720p
  *    GET /api/pdf?l=ENCODED_LINK
+ *    GET /api/liveupcoming?bid=X
  *    POST /api/clearcache
  */
 
@@ -439,6 +440,41 @@ app.get('/api/pdf', (req, res) => {
   res.json({ ok: true, type: 'pdf', url: viewer + encodeURIComponent(u) });
 });
 
+// ── /api/liveupcoming?bid=X ──────────────────────────────────────
+app.get('/api/liveupcoming', async (req, res) => {
+  const bid = parseInt(req.query.bid) || 0;
+  if (!bid) return res.status(400).json({ ok: false, error: 'bid required', code: 400 });
+
+  const endpoint = `/get/live_upcoming_course_classv2?courseid=${bid}&start=-1`;
+  const cacheKeyStr = `liveupcoming_${bid}`;
+
+  // Custom cache check (kyunki upstream ka 'data' object hai, array nahi)
+  const age = cacheAge(cacheKeyStr);
+  if (age < CONFIG.CACHE_TTL) {
+    const cached = readCache(cacheKeyStr);
+    if (cached && cached.data) {
+      return respond(res, { ...cached, _cache_hit: true });
+    }
+  }
+
+  const result = await upstreamFetch(endpoint, CONFIG.MASTER_TOKEN, CONFIG.MASTER_USERID);
+
+  if (result._failed) {
+    const stale = readCache(cacheKeyStr);
+    if (stale && stale.data) {
+      return respond(res, { ...stale, _cache_hit: 'stale' });
+    }
+    return res.status(502).json({ ok: false, error: result.error || 'Upstream failed', data: { upcoming: [] } });
+  }
+
+  if (result.data) {
+    writeCache(cacheKeyStr, result);
+  }
+
+  // Bina koi field strip kiye pura ka pura JSON exactly waise hi bhej diya jaisa upstream se aaya
+  respond(res, { ...result, _cache_hit: false });
+});
+
 // ── /api/clearcache (POST) ────────────────────────────────────────
 app.post('/api/clearcache', (req, res) => {
   const deleted = clearCache();
@@ -467,6 +503,7 @@ app.listen(PORT, () => {
   console.log(`     GET /api/content?bid=X&sid=Y&tid=Z`);
   console.log(`     GET /api/video?vid=V&bid=X&q=720p`);
   console.log(`     GET /api/pdf?l=ENCODED_LINK`);
+  console.log(`     GET /api/liveupcoming?bid=X`);
   console.log(`    POST /api/clearcache`);
 });
 
